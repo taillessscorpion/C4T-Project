@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Not But</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icon/gameIconFullColor.png" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/background.css">
+</head>
+<body>
+    <audio id="firststart"><source src="music/firststart.ogg" type="audio/ogg"></audio>
+    <audio id="nextstart1"><source src="music/nextstart1.ogg" type="audio/ogg"></audio>
+    <audio id="nextstart2"><source src="music/nextstart2.ogg" type="audio/ogg"></audio>
+    <audio id="pause1"><source src="music/pause1.ogg" type="audio/ogg"></audio>
+    <audio id="pause2"><source src="music/pause2.ogg" type="audio/ogg"></audio>
+    <audio id="pause3"><source src="music/pause3.ogg" type="audio/ogg"></audio>
+    <audio id="pause4"><source src="music/pause4.ogg" type="audio/ogg"></audio>
+    <audio id="pause5"><source src="music/pause5.ogg" type="audio/ogg"></audio>
+    <audio id="pause6"><source src="music/pause6.ogg" type="audio/ogg"></audio>
+    <audio id="stage1"><source src="music/stage1.ogg" type="audio/ogg"></audio>
+    <audio id="stage2"><source src="music/stage2.ogg" type="audio/ogg"></audio>
+    <audio id="stage3"><source src="music/stage3.ogg" type="audio/ogg"></audio>
+    <audio id="stage4"><source src="music/stage4.ogg" type="audio/ogg"></audio>
+    <audio id="stage5"><source src="music/stage5.ogg" type="audio/ogg"></audio>
+    <audio id="stage6"><source src="music/stage6.ogg" type="audio/ogg"></audio>
+    <audio id="stage7"><source src="music/stage7.ogg" type="audio/ogg"></audio>
+    <audio id="clickunlock"><source src="music/clickunlock.ogg" type="audio/ogg"></audio>
+    <audio id="clickwin"><source src="music/clickwin.ogg" type="audio/ogg"></audio>
+    <audio id="clicklose"><source src="music/clicklose.ogg" type="audio/ogg"></audio>
+    <audio id="timerunout"><source src="music/timerunout.ogg" type="audio/ogg"></audio>
+    <div class="displayFlex w100pc h600px xcontainer">
+    <div class="displayFlex wside side" id="leftside">
+        <div id="bgbutton" class="fButton fButtonnone first">
+            <span class="fButton__mask"></span>
+            <div class="eButton"><img id="ggbutton" class="iconButton" title="GAME GUIDE" src="icon/guide.png"></div>
+        </div>
+        <div id="bhsbutton" class="fButton fButtonnone next">
+            <span class="fButton__mask"></span>
+            <img id="hsbutton" class="iconButton fButton__icon" title="HALL OF FAME" src="icon/highscore.png">
+            <img id="hsbuttonF" class="iconButton fButton__icon--bis" title="HALL OF FAME" src="icon/highscore.png">
+        </div>
+        <div id="bunlbutton" class="fButton fButtonnone next">
+            <span class="fButton__mask"></span>
+            <img id="unlbutton" class="iconButton fButton__icon" title="SCORE BOARD" src="icon/lock.png">
+            <img id="unlbuttonF" class="iconButton fButton__icon--bis" title="SCORE BOARD" src="icon/unlock.png">
+        </div>
+    </div>
+    <div class="displayFlex wmiddle h600px ycontainer" id="ycontainer">
+        <div class="marginsNc" id ="point"></div>
+        <div class="marginsNs" id="comments"></div>
+        <div class="w150px h100px gameBtn bgcolorTransparent modal-hide" id="up">UP</div>
+        <div class="displayFlex xcontainer">
+            <div class="w100px h150px gameBtn bgcolorTransparent modal-hide" id="left">LEFT</div>
+            <div class="w150px h150px displayFlex aligncenter stop modal-hide"  id="commands">
+                <div class="margintop60px"></div>
+            </div>
+            <div class="w100px h150px gameBtn bgcolorTransparent modal-hide" id="right">RIGHT</div>
+        </div>
+        <div class="w150px h100px gameBtn bgcolorTransparent modal-hide" id="down">DOWN</div>
+        <div id="nameArea" class="hideArea">
+            <input id="inputName" placeholder="Player's name">
+            <button id="btnName" >Done</button>
+        </div>
+        <div id="saveArea" class="hideArea">
+            <div id="askPlaySave">Wanna try your saved game?</div>
+            <button id="playSave" >Yes</button>
+            <button id="playNew" >No</button>
+        </div>
+        <div id="ui" class="uiActive uiNormal">
+            <div class="sun sunNormal"><img class="sunImg" id="gameIcon" src="icon/gameIconTopHalf.png"></div>
+            <div class="sea seaNormal">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+        </div>
+    </div>
+    <div class="displayFlex wside side " id ="rightside">
+        <div id="bsvolume" class="vButton next">
+            <span class="vButton__vmask"></span>
+            <img id="soundvolume" class="iconButton vButton vButton__volume" title="SOUND VOLUME" src="icon/sound4.png">
+        </div>
+        <div id="recentsvolume" class="showvolume showvolumeNone">100</div>
+        <div id="bmvolume" class="vButton next">
+            <span class="vButton__vmask"></span>
+            <img id="musicvolume" class="iconButton vButton vButton__volume" title="MUSIC VOLUME" src="icon/music4.png">
+        </div>
+        <div id="recentmvolume" class="showvolume showvolumeNone">100</div>
+        <div id="bsetbutton" class="fButton fButtonnone next">
+            <span class="fButton__mask"></span>
+            <div class="eButton"><img id="setbutton" class="iconButton tag-rotate360" title="SETTING" src="icon/setting.png"></div>
+        </div>
+    </div> 
+    </div>
+    <canvas id="fakebody" class="congratEffect congratEffectActive"></canvas>
+    <div id="modalguide" class="modal modal-hide">
+        <div id="ruleBasic" class="fullModal tag-showDown">ruleBasic</div>
+        <div id="ruleUnlock" class="fullModal tag-hideDown">ruleUnlock</div>
+        <div id="guideVolume" class="fullModal tag-hideDown">guideVolume</div>
+        <div id="guideSetting" class="fullModal tag-hideDown">guideSetting</div>
+        <div id="guideScoreBoard" class="fullModal tag-hideDown">guideScoreBoard</div>
+    </div>
+    <div id="modalhighscore" class="modal modal-hide">
+        <div id="showSingleScore" class="modalContent head aligncenter"></div>
+        <div id="singleTop0" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showSingleEnd"></div>
+        </div>
+        <div id="singleTop1" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showSingleEnd"></div>
+        </div>
+        <div id="singleTop2" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showSingleEnd"></div>
+        </div>
+        <div id="singleTop3" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showSingleEnd"></div>
+        </div>
+        <div id="showTotalScore" class="modalContent head aligncenter"></div>
+        <div id="totalTop0" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showTotalEnd"></div>
+        </div>
+        <div id="totalTop1" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showTotalEnd"></div>
+        </div>
+        <div id="totalTop2" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showTotalEnd"></div>
+        </div>
+        <div id="totalTop3" class="modalHighContent">
+            <div class="showName"></div><div class="showScore"></div><div class="showTotalEnd"></div>
+        </div>
+    </div>
+    <div id="modalunlock" class="modal modal-hide">
+        <div id="showScoreBoard" class="modalContent head"></div>
+        <div id="showPlayerName" class="modalContent"></div>
+        <div id="showPlayerHighScore" class="modalContent"></div>
+        <div id="showPlayerTotalScore" class="modalContent"></div>
+        <div id="showPlayerAverange" class="modalContent"></div>
+        <div id="showPlayerQualification" class="modalContent"></div>
+        <div id="showUnlock" class="modalUnlockContent head">a</div>
+        <div id="showUnlock0" class="modalUnlockContent"><div id="showUnlock0Content"></div><img id="iconUnlock0" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock1" class="modalUnlockContent"><div id="showUnlock1Content"></div><img id="iconUnlock1" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock2" class="modalUnlockContent"><div id="showUnlock2Content"></div><img id="iconUnlock2" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock3" class="modalUnlockContent"><div id="showUnlock3Content"></div><img id="iconUnlock3" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock4" class="modalUnlockContent"><div id="showUnlock4Content"></div><img id="iconUnlock4" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock5" class="modalUnlockContent"><div id="showUnlock5Content"></div><img id="iconUnlock5" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock6" class="modalUnlockContent"><div id="showUnlock6Content"></div><img id="iconUnlock6" class="showIconUnlock modal-hide" src=""></div>
+        <div id="showUnlock7" class="modalUnlockContent"><div id="showUnlock7Content"></div><img id="iconUnlock7" class="showIconUnlock modal-hide" src=""></div>
+    </div>
+    <div id="modalsetting" class="modal modal-hide">
+        <div class="inputBox">
+            <p>Cursor effect</p>
+            <label class="tgl" style="font-size:15px">  
+                <input id="cursorEffectBtn" type="checkbox"/>
+                <span class="checkBox" data-on="On" data-off="Off"></span>
+            </label>
+        </div>
+        <div class="inputBox">
+            <p>Congratulation effect</p>
+            <label class="tgl" style="font-size:15px">  
+                <input id="congratEffectBtn" type="checkbox"/>
+                <span class="checkBox" data-on="On" data-off="Off"></span>
+            </label>
+        </div>
+        <div class="inputBox">
+            <p>Background effect</p>
+            <label class="tgl" style="font-size:15px">  
+                <input id="backgroundEffectBtn"  type="checkbox"/>
+                <span class="checkBox" data-on="On" data-off="Off"></span>
+            </label>
+        </div>
+        <div class="inputBox">
+            <p>Game language</p>
+            <label class="tgl" style="font-size:13px">  
+                <input id="languageBtn" type="checkbox" checked/>
+                <span class="checkBox" data-on="Eng" data-off="Việt"></span>
+            </label>
+        </div>
+        <div class="inputBox">
+            <p>Save game</p>
+            <label class="tgl" style="font-size:15px">  
+                <input id="saveGameBtn" type="checkbox" checked />
+                <span class="checkBox" data-on="Auto" data-off="Non"></span>
+            </label>
+        </div>
+    </div>
+    <div id="fakemodalguide" class="fakemodal"></div>
+    <div id="fakemodalhighscore" class="fakemodal"></div>
+    <div id="fakemodalunlock" class="fakemodal"></div>
+    <div id="fakemodalsetting" class="fakemodal"></div>
+    <div id="timecontainer" style="background-color: rgb(0,0,0)">
+        <div id="timebar" style="width:100%; background-color:rgb(255,255,255);"></div>
+    </div>
+    <div id="startguide" style="transform: translate(-1000px, -1000px);">
+        <div class="child childChoose out1 tag-zoom"></div>
+        <div class="child childNone out2 tag-zoom"></div>
+        <div class="child childNone out3 tag-zoom"></div>
+        <div class="child childNone out4 tag-zoom"></div>
+        <div class="child childNone out5 tag-zoom"></div>
+    </div>
+    <div id="wrap"></div>
+    <div class="cursor"></div>
+</body>
+<script src="https://threejs.org/build/three.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=pQea5u9a"></script>
+<!-- <script src="js/voice.js"></script> -->
+<script src="js/var.js"></script>
+<script src="js/mouse.js"></script>
+<script src="js/background.js"></script>
+<script src="js/gameguide.js"></script>
+<script src="js/profileNsave.js"></script>
+<script src="js/button.js"></script>
+<script src="js/main.js"></script>
+</html>
